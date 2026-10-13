@@ -1,6 +1,6 @@
 [package]
 name = "ancs-linux"
-version = "1.0.0"
+version = "1.0.1"
 edition = "2024"
 description = "Mirrors iPhone notifications to the Linux desktop over Bluetooth LE (ANCS)"
 license = "MIT"

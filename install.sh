@@ -21,7 +21,7 @@ Installs $NAME for the current user and starts it as a systemd user service.
   (no option)        Install: from the files next to this script if they are a release
                      or a source checkout, otherwise from the latest GitHub release
   --from-source      Build with cargo from the checkout this script is in
-  --version TAG      Download release TAG (e.g. v1.0.0) instead of the latest one
+  --version TAG      Download release TAG (e.g. v1.0.1) instead of the latest one
   --uninstall        Stop and remove $NAME, keeping its config and icon cache
   --purge            Like --uninstall, and also remove the config and icon cache
   -h, --help         Show this help
@@ -136,7 +136,7 @@ do_install() {
         binary="$(build "$src")"
     else
         WORK="$(mktemp -d)"
-        trap 'rm -rf "$WORK"' EXIT
+        trap 'rm -rf "${WORK:?}"' EXIT
         src="$(download "$tag" "$WORK")"
         binary="$src/$NAME"
     fi
@@ -161,12 +161,12 @@ do_uninstall() {
         systemctl --user disable --now "$NAME.service" >/dev/null 2>&1 || true
     fi
     rm -f "$BIN_DIR/$NAME" "$UNIT_DIR/$NAME.service" "$NOTIFYRC"
-    rm -rf "$DOC_DIR"
+    rm -rf "${DOC_DIR:?}"
     if user_systemd; then
         systemctl --user daemon-reload
     fi
     if [[ "$purge" == yes ]]; then
-        rm -rf "$CONFIG_DIR" "$CACHE_HOME/$NAME"
+        rm -rf "${CONFIG_DIR:?}" "${CACHE_HOME:?}/$NAME"
         say "Removed $NAME, its config and its icon cache"
     else
         say "Removed $NAME; kept $CONFIG_DIR and $CACHE_HOME/$NAME (--purge removes them)"
@@ -179,7 +179,7 @@ main() {
         case "$1" in
             --from-source) mode=source ;;
             --version)
-                [[ $# -ge 2 ]] || die "--version needs a tag, e.g. v1.0.0"
+                [[ $# -ge 2 ]] || die "--version needs a tag, e.g. v1.0.1"
                 tag="$2"
                 shift
                 ;;

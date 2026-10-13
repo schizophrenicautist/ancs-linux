@@ -1,0 +1,13 @@
+[Unit]
+Description=Mirror iPhone notifications over Bluetooth (ANCS)
+Documentation=file://%h/.local/share/doc/ancs-linux/README.md
+PartOf=graphical-session.target
+After=graphical-session.target bluetooth.target
+
+[Service]
+ExecStart=%h/.local/bin/ancs-linux
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=graphical-session.target

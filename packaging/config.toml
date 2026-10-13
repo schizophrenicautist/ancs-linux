@@ -1,0 +1,35 @@
+# Apply changes with: systemctl --user restart ancs-linux
+# Command-line flags (see ancs-linux --help) override these.
+
+# How long notifications stay on screen, in milliseconds (ms).
+#   0  = until you close it on your desktop or it is cleared on the iPhone
+#  -1  = OS's own setting.
+# Calls and notifications the iPhone marks important never time out.
+timeout_ms = 5000
+
+# Apps whose notifications are not mirrored, by bundle ID.
+# A notified app's bundle ID is the file name of its icon in ~/.cache/ancs-linux/icons.
+ignore_apps = [
+#    "ph.telegra.Telegraph",        # Telegram
+#    "com.hammerandchisel.discord", # Discord
+]
+
+# When true, dismissing a notification on your desktop clears it on the iPhone too.
+# NOTE: Incoming calls cannot be declined this way.
+dismiss_sync = true
+
+# When true, adds a "Copy 123456" button to notifications that carry a one-time code.
+copy_codes = true
+
+# When true, fetches app icons from App Store by bundle ID, cached in ~/.cache/ancs-linux/icons.
+app_store_icons = true
+# If you wish to search by a second App Store region for apps missing from the US store, enable this setting.
+# app_store_country = "ru"
+
+# When true, shows all the notification backlog from before the iPhone connected to the desktop.
+# When false, old notifications are filtered by a 2 minute threshold, so old notifications are ignored.
+show_preexisting = false
+
+# Bluetooth adapter, e.g. "hci0". Defaults to BlueZ's default adapter.
+# adapter = "hci0"
+# name = "My PC"

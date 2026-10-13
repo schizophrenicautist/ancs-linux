@@ -1,0 +1,9 @@
+[Global]
+IconName=smartphone
+Name=iPhone Notifications
+Comment=Notifications mirrored from an iPhone over Bluetooth
+
+[Event/notification]
+Name=iPhone notification
+Comment=A notification mirrored from the iPhone
+Action=Popup

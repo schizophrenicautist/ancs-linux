@@ -29,10 +29,10 @@ Running the script downloads the latest release.
    under its Bluetooth name (the adapter alias, or `--name`). Connect to it.
 3. Confirm that the PIN matches, on the iPhone and in KDE's dialog.
 4. On later iOS versions you will be prompted to 'Allow *your desktop's name* to Receive Your iPhone Notifications' in a dialog. Press '**Allow**'.  
-![alt text](https://github.com/schizophrenicautist/ancs-linux/raw/master/src/common/image/1.png "img1")
+![alt text](https://github.com/schizophrenicautist/ancs-linux/blob/783c36d6654158a9fbf2db68bd7d7ad8a123148c/image/1.png "img1")
 5. If the dialog doesn't appear, tap (i) next to the desktop and turn on **Share System Notifications**.
    The toggle can take a minute to appear, and only appears while the daemon is advertising.
-   ![alt text](https://github.com/schizophrenicautist/ancs-linux/raw/master/src/common/image/2.png "img2")
+   ![alt text](https://github.com/schizophrenicautist/ancs-linux/blob/783c36d6654158a9fbf2db68bd7d7ad8a123148c/image/2.png "img2")
 
 ## Build
 

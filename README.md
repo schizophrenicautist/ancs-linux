@@ -12,6 +12,8 @@ modifies them, and disappear when they are dismissed on both devices.
 
 - Bluetooth LE advertising support (most have it), and BlueZ (5.66 or later).
 
+> There's a bunch of Bluetooth adapters that have broken BLE. In my experience, that's a common fault of Barrot's chips, which are terrible in general. Same issues can be present on Realtek's E-key (!) adapters. If you're looking to buy an adapter, I would advise on `Intel Wi-Fi 6 AX210.NGWG.NV`, which is an E-key expansion module and has the best compatibility with Linux, or `ASUS USB-BT500`, if you prefer a dongle. The latter has Realtek's `RTL8761BUV` chip, which has great compatibility with Linux, unlike their E-key adapters.
+
 ## Install
 
 ```bash

@@ -21,7 +21,7 @@ Installs $NAME for the current user and starts it as a systemd user service.
   (no option)        Install: from the files next to this script if they are a release
                      or a source checkout, otherwise from the latest GitHub release
   --from-source      Build with cargo from the checkout this script is in
-  --version TAG      Download release TAG (e.g. v1.0.1) instead of the latest one
+  --version TAG      Download release TAG (e.g. v1.1.0) instead of the latest one
   --uninstall        Stop and remove $NAME, keeping its config and icon cache
   --purge            Like --uninstall, and also remove the config and icon cache
   -h, --help         Show this help
@@ -179,7 +179,7 @@ main() {
         case "$1" in
             --from-source) mode=source ;;
             --version)
-                [[ $# -ge 2 ]] || die "--version needs a tag, e.g. v1.0.1"
+                [[ $# -ge 2 ]] || die "--version needs a tag, e.g. v1.1.0"
                 tag="$2"
                 shift
                 ;;

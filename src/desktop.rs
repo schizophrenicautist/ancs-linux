@@ -215,6 +215,9 @@ impl DeviceNotifications {
         if content.silent {
             hints.insert("suppress-sound", Value::Bool(true));
         }
+        if content.category == CategoryId::IncomingCall {
+            hints.insert("resident", Value::Bool(true));
+        }
 
         let mut actions = Vec::new();
         if let Some(label) = &content.positive_action {

@@ -421,6 +421,7 @@ impl State<'_> {
             .get(&fetched.app_id)
             .cloned()
             .unwrap_or_else(|| fetched.app_id.clone());
+        let is_call = event.category == CategoryId::IncomingCall;
         let content = Content {
             app_id: fetched.app_id,
             app_name,
@@ -434,8 +435,8 @@ impl State<'_> {
                 .has(event_flags::POSITIVE_ACTION)
                 .then(|| label_or(fetched.positive_label, "Accept")),
             negative_action: (event.has(event_flags::NEGATIVE_ACTION)
-                && (!self.options.dismiss_sync || event.category == CategoryId::IncomingCall))
-                .then(|| label_or(fetched.negative_label, "Dismiss")),
+                && (!self.options.dismiss_sync || is_call))
+                .then(|| label_or(fetched.negative_label, if is_call { "Decline" } else { "Dismiss" })),
         };
         self.desktop.show(fetched.uid, &content).await;
     }
